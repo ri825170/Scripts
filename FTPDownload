@@ -1,0 +1,18 @@
+--- bash script to automatically download a froup of files from an FTP source --
+
+#!/bin/bash
+HOST=IP_address or HOST_address
+USER=Username
+PASSWORD=Password
+#create download folder
+mkdir Download         
+#move into download folder
+cd Download                  
+#open FTP connection 
+ftp -inv $HOST <<EOF
+user $USER $PASSWORD
+# download specific files from a specific location
+cd /files_location
+mget *.files_type
+bye
+EOF
