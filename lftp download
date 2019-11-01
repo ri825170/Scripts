@@ -1,0 +1,11 @@
+#!/bin/bash
+echo "ADDRESS > "
+read HOST;
+mkdir -p $HOST
+cd $HOST
+lftp -u username,password $HOST << EOF
+mirror /HardDisk/folder/you/want/to/download
+EOF
+
+## this script create a folder with the same name of the address used for the connection and download a specific remote folder in there
+## using lftp
